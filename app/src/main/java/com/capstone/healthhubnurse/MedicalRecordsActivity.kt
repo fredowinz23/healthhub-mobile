@@ -1,4 +1,4 @@
-package com.capstone.healthhubnurse.ui.main
+package com.capstone.healthhubnurse
 
 import android.content.Intent
 import android.os.Bundle
@@ -8,11 +8,11 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.capstone.healthhubnurse.PatientListActivity
 import com.capstone.healthhubnurse.api.ApiInterface
 import com.capstone.healthhubnurse.api.RetrofitClient
 import com.capstone.healthhubnurse.api.UserSession
 import com.capstone.healthhubnurse.databinding.ActivityMedicalRecordsBinding
+import com.capstone.healthhubnurse.requests.MedicalRecordListRequest
 import retrofit2.Call
 import retrofit2.Response
 
@@ -26,6 +26,8 @@ class MedicalRecordsActivity : AppCompatActivity() {
         binding = ActivityMedicalRecordsBinding.inflate(layoutInflater)
         setContentView(binding.root)
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+
+        patientId = intent.extras?.getInt("patientId", 0)!!
 
         getMedicalRecords(patientId)
 
@@ -42,18 +44,23 @@ class MedicalRecordsActivity : AppCompatActivity() {
 
     }
 
+    override fun onResume() {
+        super.onResume()
+        getMedicalRecords(patientId)
+    }
+
     private fun getMedicalRecords(patientId: Int) {
         val retrofit = RetrofitClient.getInstance(this)
         val retrofitAPI = retrofit.create(ApiInterface::class.java)
 
         val userSession = UserSession(this)
-        val mdRequest = MedicalRecordRequest(patientId)
+        val mdRequest = MedicalRecordListRequest(patientId)
         val call = retrofitAPI.getMDRecords(mdRequest)
 
-        call.enqueue(object : retrofit2.Callback<MedicalRecordRequest?> {
-            override fun onResponse(call: Call<MedicalRecordRequest?>, response: Response<MedicalRecordRequest?>) {
+        call.enqueue(object : retrofit2.Callback<MedicalRecordListRequest?> {
+            override fun onResponse(call: Call<MedicalRecordListRequest?>, response: Response<MedicalRecordListRequest?>) {
                 binding.progressBar.visibility = View.GONE
-                val responseFromAPI: MedicalRecordRequest? = response.body()
+                val responseFromAPI: MedicalRecordListRequest? = response.body()
 
                 val groupLinear = LinearLayoutManager(this@MedicalRecordsActivity)
                 binding.rvMDList.layoutManager = groupLinear
@@ -64,7 +71,7 @@ class MedicalRecordsActivity : AppCompatActivity() {
 
                 }
 
-            override fun onFailure(call: Call<MedicalRecordRequest?>, t: Throwable) {
+            override fun onFailure(call: Call<MedicalRecordListRequest?>, t: Throwable) {
                 binding.progressBar.visibility = View.GONE
                 Log.e("Login Error", t.message.toString())
                 Toast.makeText(

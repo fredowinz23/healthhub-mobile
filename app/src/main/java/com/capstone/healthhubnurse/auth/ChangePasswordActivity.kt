@@ -7,7 +7,7 @@ import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatDelegate
-import com.capstone.healthhubnurse.NurseMainActivity
+import com.capstone.healthhubnurse.MainActivity
 import com.capstone.healthhubnurse.api.ApiInterface
 import com.capstone.healthhubnurse.api.RetrofitClient
 import com.capstone.healthhubnurse.api.UserSession
@@ -70,7 +70,7 @@ class ChangePasswordActivity : AppCompatActivity() {
                     val userSession = UserSession(this@ChangePasswordActivity)
                     userSession.edit?.putString("username", responseFromAPI?.profile?.username)
                     userSession.edit?.apply()
-                    startActivity(Intent(this@ChangePasswordActivity, NurseMainActivity::class.java))
+                    startActivity(Intent(this@ChangePasswordActivity, MainActivity::class.java))
                     finish()
                 }
             }

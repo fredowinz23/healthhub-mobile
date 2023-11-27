@@ -1,4 +1,4 @@
-package com.capstone.healthhubnurse.ui.main
+package com.capstone.healthhubnurse
 
 import android.content.Context
 import android.content.Intent
@@ -8,20 +8,17 @@ import android.view.ViewGroup
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.capstone.healthhubnurse.NurseMainActivity
-import com.capstone.healthhubnurse.PatientListActivity
-import com.capstone.healthhubnurse.R
-import com.capstone.healthhubnurse.models.MedicalRecord
 import com.capstone.healthhubnurse.models.Patient
+import com.capstone.healthhubnurse.models.User
 
-class MedicalRecordAdapter(private var context: Context?, private val mList: List<MedicalRecord>) : RecyclerView.Adapter<MedicalRecordAdapter.ViewHolder>() {
+class DoctorOptionAdapter(private var context: Context?, private val mList: List<User>) : RecyclerView.Adapter<DoctorOptionAdapter.ViewHolder>() {
 
     // create new views
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         // inflates the card_view_design view
         // that is used to hold list item
         val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.item_medical_records, parent, false)
+            .inflate(R.layout.item_option, parent, false)
 
         return ViewHolder(view)
     }
@@ -31,12 +28,13 @@ class MedicalRecordAdapter(private var context: Context?, private val mList: Lis
 
         val item = mList[position]
 
-        holder.reasonForAdmission.text = item.reasonForAdmission
-//        holder.item.setOnClickListener {
-//            val intent = Intent(context, MedicalRecordsActivity::class.java)
-//            intent.putExtra("patientId", item.id)
-//            (context as PatientListActivity).startActivity(intent)
-//        }
+        holder.name.text = "Dr. ${item.firstName} ${item.lastName}"
+        holder.item.setOnClickListener {
+            val mdForm = context as MedicalRecordFormActivity
+            mdForm.doctorId = item.id
+            mdForm.binding.tvDoctor.text = "Dr. ${item.firstName} ${item.lastName}"
+            mdForm.builder.dismiss()
+        }
     }
 
     // return the number of the items in the list
@@ -46,7 +44,7 @@ class MedicalRecordAdapter(private var context: Context?, private val mList: Lis
 
     // Holds the views for adding it to image and text
     class ViewHolder(ItemView: View) : RecyclerView.ViewHolder(ItemView) {
-        val reasonForAdmission: TextView = itemView.findViewById(R.id.tvReasonForAdmission)
+        val name: TextView = itemView.findViewById(R.id.tvName)
         val item: LinearLayout = itemView.findViewById(R.id.llItem)
     }
 }

@@ -1,5 +1,6 @@
-package com.capstone.healthhubnurse.ui.main
+package com.capstone.healthhubnurse
 
+import android.app.AlertDialog
 import android.content.Context
 import android.content.Intent
 import android.view.LayoutInflater
@@ -7,10 +8,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
 import android.widget.TextView
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
-import com.capstone.healthhubnurse.NurseMainActivity
-import com.capstone.healthhubnurse.PatientListActivity
-import com.capstone.healthhubnurse.R
 import com.capstone.healthhubnurse.models.Patient
 
 class PatientAdapter(private var context: Context?, private val mList: List<Patient>) : RecyclerView.Adapter<PatientAdapter.ViewHolder>() {
@@ -35,8 +34,18 @@ class PatientAdapter(private var context: Context?, private val mList: List<Pati
         holder.city.text = item.city
         holder.item.setOnClickListener {
             val intent = Intent(context, MedicalRecordsActivity::class.java)
-            intent.putExtra("patientId", item.id)
-            (context as PatientListActivity).startActivity(intent)
+            val builder = AlertDialog.Builder(context)
+            builder.setTitle("Patient: ${item.fullName}")
+            builder.setMessage("Would you like to view medical Records?")
+            builder.setPositiveButton("Yes") { dialog, which ->
+                intent.putExtra("patientId", item.id)
+                (context as PatientListActivity).startActivity(intent)
+            }
+
+            builder.setNegativeButton("No") { dialog, which ->
+            }
+
+            builder.show()
         }
     }
 

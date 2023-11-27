@@ -17,19 +17,79 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <TextView
-            android:text="Reason for admission:"
-            android:textStyle="bold"
+        <LinearLayout
+            android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content">
 
-        <TextView
-            android:id="@+id/tvReasonForAdmission"
-            android:text="0000-00-00"
-            android:textSize="25dp"
-            android:textStyle="bold"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            <TextView
+                android:text="Date:"
+                android:textColor="@color/Main"
+                android:textStyle="bold"
+                android:layout_weight=".5"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:id="@+id/tvDate"
+                android:gravity="end"
+                android:text="Program:"
+                android:layout_weight=".5"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+
+
+
+
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:text="Doctor:"
+                android:textColor="@color/Main"
+                android:textStyle="bold"
+                android:layout_weight=".5"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:id="@+id/tvDoctor"
+                android:gravity="end"
+                android:text="dlkfjds:"
+                android:layout_weight=".5"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:text="Reason For Admission:"
+                android:textColor="@color/Main"
+                android:textStyle="bold"
+                android:layout_weight=".5"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:id="@+id/tvReason"
+                android:gravity="end"
+                android:text="dlkfjds:"
+                android:layout_weight=".5"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
 
 
     </LinearLayout>

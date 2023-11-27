@@ -3,8 +3,11 @@ package com.capstone.healthhubnurse.api
 import com.capstone.healthhubnurse.auth.LoginInfo
 import com.capstone.healthhubnurse.models.Patient
 import com.capstone.healthhubnurse.models.ProfileInfo
-import com.capstone.healthhubnurse.ui.main.MedicalRecordRequest
-import com.capstone.healthhubnurse.ui.main.PatientRequest
+import com.capstone.healthhubnurse.requests.MedicalRecordFormOptionRequest
+import com.capstone.healthhubnurse.requests.MedicalRecordListRequest
+import com.capstone.healthhubnurse.requests.MonitoringListRequest
+import com.capstone.healthhubnurse.requests.NewMedicalRecordRequest
+import com.capstone.healthhubnurse.requests.PatientRequest
 import retrofit2.Call
 import retrofit2.http.Body
 import retrofit2.http.POST
@@ -30,11 +33,23 @@ interface ApiInterface {
 
     @Headers("Content-Type: application/json")
     @POST("api/get-md-records.php")
-    fun getMDRecords(@Body mdRequest: MedicalRecordRequest): Call<MedicalRecordRequest>
+    fun getMDRecords(@Body mdRequest: MedicalRecordListRequest): Call<MedicalRecordListRequest>
+
+    @Headers("Content-Type: application/json")
+    @POST("api/get-monitoring-list.php")
+    fun getMonitoringList(@Body monitoringListRequest: MonitoringListRequest): Call<MonitoringListRequest>
 
     @Headers("Content-Type: application/json")
     @POST("api/submit-patient-form.php")
     fun submitPatientForm(@Body patient: Patient): Call<Patient>
+
+    @Headers("Content-Type: application/json")
+    @POST("api/submit-md-form.php")
+    fun submitMdForm(@Body newMedicalRecordRequest: NewMedicalRecordRequest): Call<NewMedicalRecordRequest>
+
+    @Headers("Content-Type: application/json")
+    @POST("api/get-md-form-options.php")
+    fun getMdFormOptions(@Body medicalRecordFormOptionRequest: MedicalRecordFormOptionRequest): Call<MedicalRecordFormOptionRequest>
 
 
 }

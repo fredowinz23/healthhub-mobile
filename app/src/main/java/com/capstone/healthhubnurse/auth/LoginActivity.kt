@@ -7,7 +7,7 @@ import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatDelegate
-import com.capstone.healthhubnurse.NurseMainActivity
+import com.capstone.healthhubnurse.MainActivity
 import com.capstone.healthhubnurse.api.UserSession
 import com.capstone.healthhubnurse.api.ApiInterface
 import com.capstone.healthhubnurse.api.RetrofitClient
@@ -80,7 +80,7 @@ class LoginActivity : AppCompatActivity() {
                     val userSession = UserSession(this@LoginActivity)
                     userSession.edit?.putString("username", responseFromAPI?.profile?.username)
                     userSession.edit?.apply()
-                    startActivity(Intent(this@LoginActivity, NurseMainActivity::class.java))
+                    startActivity(Intent(this@LoginActivity, MainActivity::class.java))
                     finish()
                 }
                 else{

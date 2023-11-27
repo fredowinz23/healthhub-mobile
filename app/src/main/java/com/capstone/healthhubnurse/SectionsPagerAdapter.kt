@@ -1,16 +1,14 @@
-package com.capstone.healthhubnurse.ui.main
+package com.capstone.healthhubnurse
 
 import android.content.Context
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
-import com.capstone.healthhubnurse.R
 
 private val TAB_TITLES = arrayOf(
     R.string.tab_admitted,
     R.string.tab_discharged,
 )
-
 /**
  * A [FragmentPagerAdapter] that returns a fragment corresponding to
  * one of the sections/tabs/pages.

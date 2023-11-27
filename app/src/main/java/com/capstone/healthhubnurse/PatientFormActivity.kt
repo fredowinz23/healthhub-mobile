@@ -1,21 +1,17 @@
-package com.capstone.healthhubnurse.ui.main
+package com.capstone.healthhubnurse
 
 import android.app.DatePickerDialog
 import android.app.Dialog
 import android.os.Bundle
 import android.util.Log
 import android.view.View
-import android.view.ViewGroup
+import android.widget.RadioButton
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import com.capstone.healthhubnurse.R
 import com.capstone.healthhubnurse.api.ApiInterface
 import com.capstone.healthhubnurse.api.RetrofitClient
-import com.capstone.healthhubnurse.api.UserSession
 import com.capstone.healthhubnurse.databinding.ActivityPatientFormBinding
 import com.capstone.healthhubnurse.models.Patient
 import retrofit2.Call
@@ -23,10 +19,11 @@ import retrofit2.Callback
 import retrofit2.Response
 import java.util.*
 
-class NewPatientFormActivity : AppCompatActivity() {
+class PatientFormActivity : AppCompatActivity() {
 
     lateinit var binding: ActivityPatientFormBinding
     var dob = ""
+    var gender = ""
     lateinit var builder: Dialog
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -48,18 +45,44 @@ class NewPatientFormActivity : AppCompatActivity() {
                 .get(Calendar.YEAR), myCalendar.get(Calendar.MONTH),
                 myCalendar.get(Calendar.DAY_OF_MONTH)).show()
         }
+        
+        binding.rgGender.setOnCheckedChangeListener { _, checkedId ->
+            val radio: RadioButton = findViewById(checkedId)
+            gender = radio.text.toString()
+        }
 
 
         binding.btnSubmit.setOnClickListener {
-            if (binding.etFullName.text.isEmpty() || dob=="" || binding.etAddress.text.isEmpty()){
+            if (binding.etFullName.text.isEmpty() ||
+                dob=="" ||
+                gender=="" ||
+                binding.etAddress.text.isEmpty() ||
+                binding.etCity.text.isEmpty() ||
+                binding.etPhone.text.isEmpty() ||
+                binding.etEmail.text.isEmpty() ||
+                binding.etEcName.text.isEmpty() ||
+                binding.etEcPhoneNumber.text.isEmpty() ||
+                binding.etEcRelationship.text.isEmpty()
+                ){
                     Toast.makeText(
-                    this@NewPatientFormActivity,
+                    this@PatientFormActivity,
                     "Fields Must not be empty",
                     Toast.LENGTH_LONG
                 ).show()
             }
             else{
-                submitRequest(binding.etFullName.text.toString(), dob, binding.etAddress.text.toString())
+                submitRequest(
+                    binding.etFullName.text.toString(),
+                    dob,
+                    gender,
+                    binding.etAddress.text.toString(),
+                    binding.etCity.text.toString(),
+                    binding.etPhone.text.toString(),
+                    binding.etEmail.text.toString(),
+                    binding.etEcName.text.toString(),
+                    binding.etEcPhoneNumber.text.toString(),
+                    binding.etEcRelationship.text.toString()
+                )
             }
         }
     }
@@ -76,15 +99,25 @@ class NewPatientFormActivity : AppCompatActivity() {
         }
     }
 
-    private fun submitRequest(fullName: String, dob: String, address: String) {
+    private fun submitRequest(
+        fullName: String,
+        dob: String,
+        gender: String,
+        address: String,
+        city: String,
+        phone: String,
+        email: String,
+        ecName: String,
+        ecPhoneNumber: String,
+        ecRelationship: String
+    ) {
         val retrofit = RetrofitClient.getInstance(this)
         val retrofitAPI = retrofit.create(ApiInterface::class.java)
 
         binding.btnSubmit.visibility = View.GONE
         binding.progressBar.visibility = View.VISIBLE
 
-        val userSession = UserSession(this)
-        val patient = Patient(0, fullName, dob, "", address)
+        val patient = Patient(0, fullName, dob, gender, address, city, phone, email, ecName, ecPhoneNumber, ecRelationship)
         val call = retrofitAPI.submitPatientForm(patient)
 
         call.enqueue(object : Callback<Patient?> {
@@ -98,7 +131,7 @@ class NewPatientFormActivity : AppCompatActivity() {
             override fun onFailure(call: Call<Patient?>, t: Throwable) {
 
                 Toast.makeText(
-                    this@NewPatientFormActivity,
+                    this@PatientFormActivity,
                     "Internet Connection Error",
                     Toast.LENGTH_LONG
                 ).show()

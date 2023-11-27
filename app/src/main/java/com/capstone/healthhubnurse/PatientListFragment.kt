@@ -1,4 +1,4 @@
-package com.capstone.healthhubnurse.ui.main
+package com.capstone.healthhubnurse
 
 import android.os.Bundle
 import android.util.Log
@@ -12,6 +12,7 @@ import com.capstone.healthhubnurse.api.ApiInterface
 import com.capstone.healthhubnurse.api.RetrofitClient
 import com.capstone.healthhubnurse.api.UserSession
 import com.capstone.healthhubnurse.databinding.FragmentPatientListBinding
+import com.capstone.healthhubnurse.requests.PatientRequest
 import retrofit2.Call
 import retrofit2.Response
 

@@ -1,11 +1,11 @@
 package com.capstone.healthhubnurse
 
+import android.content.Intent
 import android.os.Bundle
-import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.tabs.TabLayout
 import androidx.viewpager.widget.ViewPager
 import androidx.appcompat.app.AppCompatActivity
-import com.capstone.healthhubnurse.ui.main.SectionsPagerAdapter
+import androidx.appcompat.app.AppCompatDelegate
 import com.capstone.healthhubnurse.databinding.ActivityPatientListBinding
 
 class PatientListActivity : AppCompatActivity() {
@@ -17,6 +17,7 @@ class PatientListActivity : AppCompatActivity() {
 
         binding = ActivityPatientListBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
 
         val sectionsPagerAdapter = SectionsPagerAdapter(this, supportFragmentManager)
         val viewPager: ViewPager = binding.viewPager
@@ -29,8 +30,8 @@ class PatientListActivity : AppCompatActivity() {
             finish()
         }
 
-//        fab.setOnClickListener { _ ->
-//            startActivity(Intent(this@PatientListActivity, NewPatientFormActivity::class.java))
-//        }
+        binding.fab.setOnClickListener { _ ->
+            startActivity(Intent(this@PatientListActivity, PatientFormActivity::class.java))
+        }
     }
 }

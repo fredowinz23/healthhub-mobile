@@ -13,10 +13,7 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="m">
         <activity
-            android:name="com.capstone.healthhubnurse.MyProfileActivity"
-            android:exported="false" />
-        <activity
-            android:name="com.capstone.healthhubnurse.NurseMainActivity"
+            android:name="com.capstone.healthhubnurse.MainActivity"
             android:exported="false"
             android:label="@string/title_activity_nurse_main"
             android:theme="@style/Theme.HealthHubNurse.NoActionBar.NoActionBar" />
@@ -24,16 +21,13 @@
             android:name="com.capstone.healthhubnurse.PatientListActivity"
             android:exported="false" />
         <activity
-            android:name="com.capstone.healthhubnurse.ui.main.NewPatientFormActivity"
+            android:name="com.capstone.healthhubnurse.PatientFormActivity"
             android:exported="false" />
         <activity
             android:name="com.capstone.healthhubnurse.auth.ChangePasswordActivity"
             android:exported="false" />
         <activity
             android:name="com.capstone.healthhubnurse.auth.LoginActivity"
-            android:exported="false" />
-        <activity
-            android:name="com.capstone.healthhubnurse.MainActivity"
             android:exported="false" />
         <activity
             android:name="com.capstone.healthhubnurse.debug.HostUrlActivity"
@@ -48,8 +42,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.main.MedicalRecordsActivity" />
-        <activity android:name=".ui.main.MedicalRecordFormActivity" />
+        <activity android:name=".MedicalRecordsActivity" />
+        <activity android:name=".MedicalRecordFormActivity" />
+        <activity android:name=".MonitoringListActivity" />
     </application>
 
     <uses-permission android:name="android.permission.INTERNET" />

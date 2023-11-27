@@ -27,4 +27,12 @@ data class Patient(
     @SerializedName("email")
     var email: String = "",
 
+    @SerializedName("emergencyContactName")
+    var emergencyContactName: String = "",
+
+    @SerializedName("emergencyPhoneNumber")
+    var emergencyPhoneNumber: String = "",
+
+    @SerializedName("relationship")
+    var relationship: String = "",
 )

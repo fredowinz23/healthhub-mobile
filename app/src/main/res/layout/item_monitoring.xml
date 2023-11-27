@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="5dp"
+    android:foreground="?android:attr/selectableItemBackground"
+    android:clickable="true"
+    android:focusable="true"
+    app:cardElevation="3dp">
+
+    <LinearLayout
+        android:id="@+id/llItem"
+        android:layout_margin="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:text="Date Monitored:"
+                android:textColor="@color/Main"
+                android:textStyle="bold"
+                android:layout_weight=".5"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:id="@+id/tvDate"
+                android:gravity="end"
+                android:text="Program:"
+                android:layout_weight=".5"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+
+
+
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:text="Temperature:"
+                android:textColor="@color/Main"
+                android:textStyle="bold"
+                android:layout_weight=".5"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:id="@+id/tvTemperature"
+                android:gravity="end"
+                android:text="dlkfjds:"
+                android:layout_weight=".5"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:text="Blood Pressure:"
+                android:textColor="@color/Main"
+                android:textStyle="bold"
+                android:layout_weight=".5"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:id="@+id/tvBloodPressure"
+                android:gravity="end"
+                android:text="dlkfjds:"
+                android:layout_weight=".5"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:text="Respiratory Rate:"
+                android:textColor="@color/Main"
+                android:textStyle="bold"
+                android:layout_weight=".5"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:id="@+id/tvRespiratoryRate"
+                android:gravity="end"
+                android:text="dlkfjds:"
+                android:layout_weight=".5"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:text="Oxygen:"
+                android:textColor="@color/Main"
+                android:textStyle="bold"
+                android:layout_weight=".5"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:id="@+id/tvOxygen"
+                android:gravity="end"
+                android:text="dlkfjds:"
+                android:layout_weight=".5"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:text="Cardiac Rate:"
+                android:textColor="@color/Main"
+                android:textStyle="bold"
+                android:layout_weight=".5"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:id="@+id/tvCardiacRate"
+                android:gravity="end"
+                android:text="dlkfjds:"
+                android:layout_weight=".5"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:text="Medications:"
+                android:textColor="@color/Main"
+                android:textStyle="bold"
+                android:layout_weight=".5"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:id="@+id/tvMedications"
+                android:gravity="end"
+                android:text="dlkfjds:"
+                android:layout_weight=".5"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:text="Observations:"
+                android:textColor="@color/Main"
+                android:textStyle="bold"
+                android:layout_weight=".5"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:id="@+id/tvObservations"
+                android:gravity="end"
+                android:text="dlkfjds:"
+                android:layout_weight=".5"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:text="Recommendations:"
+                android:textColor="@color/Main"
+                android:textStyle="bold"
+                android:layout_weight=".5"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:id="@+id/tvRecommendations"
+                android:gravity="end"
+                android:text="dlkfjds:"
+                android:layout_weight=".5"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:text="Monitored By:"
+                android:textColor="@color/Main"
+                android:textStyle="bold"
+                android:layout_weight=".5"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:id="@+id/tvMonitoredBy"
+                android:gravity="end"
+                android:text="dlkfjds:"
+                android:layout_weight=".5"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

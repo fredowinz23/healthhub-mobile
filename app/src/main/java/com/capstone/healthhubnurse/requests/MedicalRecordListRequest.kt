@@ -1,9 +1,9 @@
-package com.capstone.healthhubnurse.ui.main
+package com.capstone.healthhubnurse.requests
 
 import com.capstone.healthhubnurse.models.MedicalRecord
 import com.google.gson.annotations.SerializedName
 
-data class MedicalRecordRequest(
+data class MedicalRecordListRequest(
     @SerializedName("patientId")
     var patientId: Int,
 

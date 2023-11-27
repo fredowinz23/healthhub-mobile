@@ -7,16 +7,17 @@
     android:layout_height="wrap_content">
 
     <TextView
-        android:text="Select Leave Type:"
-        android:textSize="30dp"
+        android:layout_margin="10dp"
+        android:id="@+id/tvHeader"
+        android:text="Select Option:"
+        android:textStyle="bold"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvleaveTypeList"
-        android:layout_marginBottom="50dp"
+        android:id="@+id/rvList"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:listitem="@layout/item_leave_type_list" />
+        tools:listitem="@layout/item_option" />
 
 </LinearLayout>

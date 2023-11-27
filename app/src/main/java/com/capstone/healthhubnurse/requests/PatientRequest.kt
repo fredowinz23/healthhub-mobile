@@ -1,4 +1,4 @@
-package com.capstone.healthhubnurse.ui.main
+package com.capstone.healthhubnurse.requests
 
 import com.capstone.healthhubnurse.models.Patient
 import com.google.gson.annotations.SerializedName
